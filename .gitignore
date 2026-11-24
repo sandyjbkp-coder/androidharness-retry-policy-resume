@@ -1,0 +1,84 @@
+# --- Build outputs / local machine ---
+build/
+.gradle/
+.kotlin/
+local.properties
+.env
+.env.*
+!.env.example
+secrets.properties
+keystore.properties
+key.properties
+
+# --- Bybit live/paper trading port ---
+.harness/bybit_live/.env
+.harness/bybit_live/.env.testnet
+.harness/bybit_live/*.jsonl
+.harness/bybit_live/states/
+.harness/bybit_live/monitor_state.json
+.harness/bybit_live/oauth_token.json
+.harness/bybit_live/oauth_cb*.json
+# Runtime artefacts, not source. __pycache__ and the supervisor's pid file are
+# machine state; committing them makes every poll show as a change.
+__pycache__/
+*.pyc
+.harness/bybit_live/supervisor.state
+.harness/bybit_live/supervisor.log
+.harness/bybit_live/watch_sui.log
+.harness/bybit_live/watchdog.log
+# Pre-change snapshot of the four port files (.backup-20261002/).
+.harness/bybit_live/.backup-*/
+# Stray nested tree created by the watcher's old relative WATCH_LOG path
+# (it resolved against cwd, which was already .harness/bybit_live). Only ever
+# contained runtime state and an empty log. Superseded by the absolute path.
+.harness/bybit_live/.harness/
+*.apk
+*.aab
+*.ap_
+captures/
+
+# --- IDE ---
+.idea/
+*.iml
+.vscode/
+.run/
+
+# --- AI assistant working files ---
+.zcode/
+.claude/
+.agents/
+.codex/
+.codegraph/
+.cursor/
+/skills/
+graphify-out/
+
+# --- Not part of the published source tree ---
+docs/
+screenshots/
+mock-server.js
+README.full.md
+
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+
+# --- AI assistant working files --- (continued)
+.hermes/
+research/
+
+
+# --- Signing ---
+signing-keys/
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*-private.pem
+id_rsa
+id_ed25519
+
+# --- Backend dependencies / local logs ---
+node_modules/
+*.log
